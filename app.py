@@ -1,12 +1,12 @@
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import streamlit as st
 import os
 from langchain_openai import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
 
-load_dotenv()
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-
+#load_dotenv()
+#os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 st.title("生成AIが回答してくれるWEBアプリ")
 st.write("入力フォームに健康or資産形成に関する質問を入力し、「実行」ボタンを押すことで、専門家AIが回答してくれます。")
