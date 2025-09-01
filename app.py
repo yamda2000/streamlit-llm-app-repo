@@ -30,7 +30,7 @@ if st.button("実行"):
         ],
         )
 
-        st.write("### 専門家AI回答")
+        st.write("### 夏目漱石AI回答")
         st.write(resp.choices[0].message.content)
 
     else:
