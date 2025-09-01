@@ -7,12 +7,12 @@ from openai import OpenAI
 #os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
-st.title("夏目漱石AIが回答してくれるWEBアプリ")
-st.write("入力フォームに質問を入力し、「実行」ボタンを押すことで、夏目漱石AIが回答してくれます。")
+st.title("夏目漱石AIが回答してくれるアプリ")
+st.write("質問を入力し、「実行」ボタンを押すことで、夏目漱石AIが回答してくれます。")
 
 st.divider()
 
-input_message = st.text_input(label="健康に関する質問を入力してください。")
+input_message = st.text_input(label="質問を入力してください。")
 client=OpenAI()
 
 if st.button("実行"):
