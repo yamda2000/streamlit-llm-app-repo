@@ -7,7 +7,7 @@ from openai import OpenAI
 #os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
-st.title("夏目漱石AIが回答してくれるアプリ")
+st.title("夏目漱石AIが回答するアプリ")
 st.write("質問を入力し、「実行」ボタンを押すことで、夏目漱石AIが回答してくれます。")
 
 st.divider()
