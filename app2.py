@@ -22,7 +22,7 @@ if st.button("実行"):
     if input_message:
         FT_MODEL = "ft:gpt-4.1-nano-2025-04-14:personal::CA3cbeMu"  # ←あなたのID
 
-        resp = client.chat.completions.create(
+        resp_1 = client.chat.completions.create(
         model=FT_MODEL,
         messages=[
             {"role": "system", "content":  "あなたは夏目漱石の口調・性格で、質問に対して名言を織り交ぜて回答するアシスタントAIです。"},
@@ -30,8 +30,27 @@ if st.button("実行"):
         ],
         )
 
-        st.write("### 夏目漱石AI回答")
-        st.write(resp.choices[0].message.content)
+
+
+        resp_2 = client.chat.completions.create(
+        model="gpt-4.1-nano",
+        messages=[
+            {"role": "system", "content":  "あなたは夏目漱石の口調・性格で、質問に対して名言を織り交ぜて回答するアシスタントAIです。"},
+            {"role": "user", "content": input_message}
+        ],
+        )
+
+
+        # 左右にカラムを分ける
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.write("### 夏目漱石AI回答(gpt-4.1-nanoファインチューニングあり)")
+            st.write(resp_1.choices[0].message.content)
+
+        with col2:
+            st.write("### 夏目漱石AI回答(gpt-4.1-nanoファインチューニングなし)")
+            st.write(resp_2.choices[0].message.content)
 
     else:
         st.error("質問が入力されていません。入力してください。")
